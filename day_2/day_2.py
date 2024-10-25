@@ -6,7 +6,13 @@ with open('day_2_input.txt') as file:
 def getGameNumber(gameLine):
     return int(''.join(filter(str.isdigit, gameLine[1])))
 
-
+def getDiceColor(gameLine):
+    a = gameLine
+    q = ""
+    for i in a:
+        if i.isalpha():
+            q = "".join([q,i])
+    return q
     
 for line in lines:
     gameLine = line.split()
@@ -29,9 +35,10 @@ for line in lines:
             break
 
         if gameLine[colorIndex][-1] == ';':
-            print("NEW SUB GAME. DICE DRAWN", gameLine[colorIndex])
+            print("DICE DRAWN", getDiceColor(gameLine[colorIndex]))
+            print("NEW SUB GAME")
         elif gameLine[colorIndex][-1] == ',':
-            print("DICE DRAWN", gameLine[colorIndex])
+            print("DICE DRAWN", getDiceColor(gameLine[colorIndex]))
         elif colorIndex == len(gameLine) - 1:
             print("DICE DRAWN", gameLine[colorIndex])
 
