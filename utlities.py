@@ -1,8 +1,10 @@
+################    DAY 1   ################
 def readInInput(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
     return lines
 
+################    DAY 2   ################
 def getGameNumber(gameLine):
     return int(''.join(filter(str.isdigit, gameLine[1])))
 
@@ -33,3 +35,20 @@ def isValid(gameLine, colorIndex, numOfCubesIndex):
             return False
     else:
         print("error")
+
+################    DAY 3   ################
+def checkNextNumber(line, numberIndex):
+    totalInt = []
+    keepGoing = True
+    while keepGoing:
+        checkVar = 1
+        if line[numberIndex].isdigit():
+            totalInt.append(line[numberIndex])
+            numberIndex += 1
+        else:
+            print(totalInt) 
+            keepGoing = False
+
+    #print(numberIndex)
+    testVar = numberIndex
+    return numberIndex        
