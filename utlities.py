@@ -40,7 +40,18 @@ def isValid(gameLine, colorIndex, numOfCubesIndex):
 
 
 #######################################         DAY3          ####################################### 
+
 def checkNextNumber(line, numberIndex):
+    """
+    Extracts the next sequence of digits from a specified starting index in a line.
+
+    Args:
+        line (str): The string line to check.
+        numberIndex (int): The starting index in `line` to begin looking for digits.
+
+    Returns:
+        int: The integer representation of the consecutive digits found starting at `numberIndex`.
+    """
     totalInt = []
     keepGoing = True
     while keepGoing:
@@ -48,13 +59,32 @@ def checkNextNumber(line, numberIndex):
             totalInt.append(line[numberIndex])
             numberIndex += 1
         else:
-            #print(totalInt)
             break
-    return totalInt
+    return int(''.join(map(str, totalInt)))
 
+def nextNumberLength(validInt):
+    """
+    Determines the number of digits in a given integer.
 
+    Args:
+        validInt (int): The integer whose length in digits is to be determined.
 
-def checkNextNumberLength(line, numberIndex):
+    Returns:
+        int: The number of digits in `validInt`.
+    """
+    return len(str(validInt))
+
+def checkNextNumberIndex(line, numberIndex):
+    """
+    Finds the ending index of a sequence of digits starting at a specified index in a line.
+
+    Args:
+        line (str): The string line to check.
+        numberIndex (int): The starting index in `line` to begin looking for digits.
+
+    Returns:
+        int: The index immediately following the last digit in the sequence found starting at `numberIndex`.
+    """
     totalInt = []
     keepGoing = True
     while keepGoing:
@@ -62,43 +92,56 @@ def checkNextNumberLength(line, numberIndex):
             totalInt.append(line[numberIndex])
             numberIndex += 1
         else:
-            #print(totalInt) 
             break
-
     return numberIndex
 
 def checkNextLine(line, lowerBound, upperBound):
-    #print(lowerBound)
+    """
+    Checks if any special characters are present on the next line.
+
+    Args:
+        line (str): The string line to check.
+        lowerBound (int): The starting index of the range to check.
+        upperBound (int): The ending index (exclusive) of the range to check.
+
+    Returns:
+        bool: True if a special character (*, $, -, %, @, =, &, /, +, #) is found within the range, False otherwise.
+    """
     while lowerBound < upperBound:
-        #print(upperBound)
-        #print(line)
-        #print(line[lowerBound])
-        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+        if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
-        #print(lowerBound)
-        #print(upperBound)
 
 def checkPrevLine(line, lowerBound, upperBound):
-    #print(lowerBound)
+    """
+    Checks if any special characters are present on the previous line.
+
+    Args:
+        line (str): The string line to check.
+        lowerBound (int): The starting index of the range to check.
+        upperBound (int): The ending index (exclusive) of the range to check.
+
+    Returns:
+        bool: True if a special character (*, $, -, %, @, =, &, /, +, #) is found within the range, False otherwise.
+    """
     while lowerBound < upperBound:
-        #print(upperBound)
-        #print(line)
-        #print(line[lowerBound])
-        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+        if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
-        #print(lowerBound)
-        #print(upperBound)
 
 def checkLine(line, lowerBound, upperBound):
-    #print(lowerBound)
+    """
+    Checks if any special characters are present on the current iterating line.
+
+    Args:
+        line (str): The string line to check.
+        lowerBound (int): The starting index of the range to check.
+        upperBound (int): The ending index (exclusive) of the range to check.
+
+    Returns:
+        bool: True if a special character (*, $, -, %, @, =, &, /, +, #) is found within the range, False otherwise.
+    """
     while lowerBound < upperBound:
-        #print(upperBound)
-        #print(line)
-        #print(line[lowerBound])
-        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+        if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
-        #print(lowerBound)
-        #print(upperBound)
