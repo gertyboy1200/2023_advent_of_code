@@ -11,14 +11,21 @@ lines = utlities.readInInput('day_3_input.txt')
 # step 2: assign each line of file to a list
 for line in lines:
     newIndex = 0
-    for i in range(len(line)):
+    for i in range(140):
 # step 3: find the int ranges in each line ie. if there is a 3 digit number its range may be line[2]-line[5]
+        print(line[i])
+        
         #print(newIndex)
-        if newIndex > len(line)- 2:
-            break
-        if line[newIndex].isdigit():
+        #if newIndex > len(line)- 2:
+         #   break
+        #if line[newIndex].isdigit():
            #print(line[i])
-           newIndex = utlities.checkNextNumber(line, i) 
-        newIndex += 1
+         #  newIndex = utlities.checkNextNumber(line, i) 
+        #newIndex += 1
         #print(newIndex)
+
+
+
+size = 140
+defaultValue = 'none'
 

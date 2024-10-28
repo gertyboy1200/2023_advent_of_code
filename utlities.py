@@ -47,8 +47,7 @@ def checkNextNumber(line, numberIndex):
             numberIndex += 1
         else:
             print(totalInt) 
-            keepGoing = False
+            break
 
-    #print(numberIndex)
-    testVar = numberIndex
+
     return numberIndex        
