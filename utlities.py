@@ -68,13 +68,37 @@ def checkNextNumberLength(line, numberIndex):
     return numberIndex
 
 def checkNextLine(line, lowerBound, upperBound):
-    print(lowerBound)
+    #print(lowerBound)
     while lowerBound < upperBound:
         #print(upperBound)
-        print(line)
-        print(line[lowerBound])
+        #print(line)
+        #print(line[lowerBound])
         if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
-            print("YESSSSSS")
+            return True
         lowerBound += 1
-        print(lowerBound)
-        print(upperBound)
+        #print(lowerBound)
+        #print(upperBound)
+
+def checkPrevLine(line, lowerBound, upperBound):
+    #print(lowerBound)
+    while lowerBound < upperBound:
+        #print(upperBound)
+        #print(line)
+        #print(line[lowerBound])
+        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+            return True
+        lowerBound += 1
+        #print(lowerBound)
+        #print(upperBound)
+
+def checkLine(line, lowerBound, upperBound):
+    #print(lowerBound)
+    while lowerBound < upperBound:
+        #print(upperBound)
+        #print(line)
+        #print(line[lowerBound])
+        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+            return True
+        lowerBound += 1
+        #print(lowerBound)
+        #print(upperBound)

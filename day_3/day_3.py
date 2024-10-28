@@ -6,8 +6,9 @@ sys.path.append('/Users/garrettkolenbrander/Code/2023_advent_of_code/')
 import utlities
 
 # step 1: read in file 
-lines = utlities.readInInput('day_3_input copy.txt')
+lines = utlities.readInInput('day_3_input.txt')
 validInt = []
+total = 0
 # step 2: assign each line of file to a list
 for lineIndex, line in enumerate(lines):
     i = 0
@@ -17,16 +18,24 @@ for lineIndex, line in enumerate(lines):
             validInt = int(''.join(map(str, utlities.checkNextNumber(line, i))))
             x = len(str(validInt))
             i = utlities.checkNextNumberLength(line, i)
+
             
             if lineIndex + 1 < len(lines):
-                utlities.checkNextLine(lines[lineIndex + 1], (i - (x + 1), i)
+                if utlities.checkNextLine(lines[lineIndex + 1], (i - (x + 1)), i + 1):
+                  total += validInt
+                                       
             if lineIndex - 1 >= 0:
-                print("oi")
+                if utlities.checkPrevLine(lines[lineIndex - 1], (i - (x + 1)), i + 1):
+                    total += validInt
+
+            if utlities.checkLine(lines[lineIndex], (i - (x + 1)), i + 1):
+                total += validInt
 
 
 
              
         i += 1
+print(total)
 
 
 
