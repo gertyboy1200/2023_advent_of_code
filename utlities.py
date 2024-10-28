@@ -1,10 +1,13 @@
-################    DAY 1   ################
+#######################################         DAY1          ####################################### 
+
 def readInInput(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
     return lines
 
-################    DAY 2   ################
+
+#######################################         DAY2          ####################################### 
+
 def getGameNumber(gameLine):
     return int(''.join(filter(str.isdigit, gameLine[1])))
 
@@ -17,7 +20,6 @@ def getDiceColor(gameLine):
     return q
 
 def isValid(gameLine, colorIndex, numOfCubesIndex):
-    #print(gameLine, colorIndex, numOfCubesIndex, gameLine[colorIndex], gameLine[numOfCubesIndex])
     if 'red' in gameLine[colorIndex]:
         if int(gameLine[numOfCubesIndex]) <= 12:
             return True
@@ -36,18 +38,43 @@ def isValid(gameLine, colorIndex, numOfCubesIndex):
     else:
         print("error")
 
-################    DAY 3   ################
+
+#######################################         DAY3          ####################################### 
 def checkNextNumber(line, numberIndex):
     totalInt = []
     keepGoing = True
     while keepGoing:
-        checkVar = 1
         if line[numberIndex].isdigit():
             totalInt.append(line[numberIndex])
             numberIndex += 1
         else:
-            print(totalInt) 
+            #print(totalInt)
+            break
+    return totalInt
+
+
+
+def checkNextNumberLength(line, numberIndex):
+    totalInt = []
+    keepGoing = True
+    while keepGoing:
+        if line[numberIndex].isdigit():
+            totalInt.append(line[numberIndex])
+            numberIndex += 1
+        else:
+            #print(totalInt) 
             break
 
+    return numberIndex
 
-    return numberIndex        
+def checkNextLine(line, lowerBound, upperBound):
+    print(lowerBound)
+    while lowerBound < upperBound:
+        #print(upperBound)
+        print(line)
+        print(line[lowerBound])
+        if line[lowerBound] in ( '*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
+            print("YESSSSSS")
+        lowerBound += 1
+        print(lowerBound)
+        print(upperBound)

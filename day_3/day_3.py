@@ -6,26 +6,27 @@ sys.path.append('/Users/garrettkolenbrander/Code/2023_advent_of_code/')
 import utlities
 
 # step 1: read in file 
-lines = utlities.readInInput('day_3_input.txt')
-
+lines = utlities.readInInput('day_3_input copy.txt')
+validInt = []
 # step 2: assign each line of file to a list
-for line in lines:
-    newIndex = 0
-    for i in range(140):
+for lineIndex, line in enumerate(lines):
+    i = 0
+    while i < 140:
 # step 3: find the int ranges in each line ie. if there is a 3 digit number its range may be line[2]-line[5]
-        print(line[i])
-        
-        #print(newIndex)
-        #if newIndex > len(line)- 2:
-         #   break
-        #if line[newIndex].isdigit():
-           #print(line[i])
-         #  newIndex = utlities.checkNextNumber(line, i) 
-        #newIndex += 1
-        #print(newIndex)
+        if line[i].isdigit():
+            validInt = int(''.join(map(str, utlities.checkNextNumber(line, i))))
+            x = len(str(validInt))
+            i = utlities.checkNextNumberLength(line, i)
+            
+            if lineIndex + 1 < len(lines):
+                utlities.checkNextLine(lines[lineIndex + 1], (i - (x + 1), i)
+            if lineIndex - 1 >= 0:
+                print("oi")
 
 
 
-size = 140
-defaultValue = 'none'
+             
+        i += 1
+
+
 
