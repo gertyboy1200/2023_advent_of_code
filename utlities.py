@@ -41,28 +41,25 @@ def isValid(gameLine, colorIndex, numOfCubesIndex):
 
 #######################################         DAY3          ####################################### 
 
-def checkNextNumber(line, numberIndex):
+def checkNextNumber(line: list[str], numberIndex: int) -> int:
     """
     Extracts the next sequence of digits from a specified starting index in a line.
 
     Args:
-        line (str): The string line to check.
+        line (list[str]): The list of characters in the line to check.
         numberIndex (int): The starting index in `line` to begin looking for digits.
 
     Returns:
         int: The integer representation of the consecutive digits found starting at `numberIndex`.
     """
     totalInt = []
-    keepGoing = True
-    while keepGoing:
-        if line[numberIndex].isdigit():
-            totalInt.append(line[numberIndex])
-            numberIndex += 1
-        else:
-            break
-    return int(''.join(map(str, totalInt)))
+    while numberIndex < len(line) and line[numberIndex].isdigit():
+        totalInt.append(line[numberIndex])
+        numberIndex += 1
+    return int(''.join(totalInt))
 
-def nextNumberLength(validInt):
+
+def nextNumberLength(validInt: int) -> int:
     """
     Determines the number of digits in a given integer.
 
@@ -74,33 +71,29 @@ def nextNumberLength(validInt):
     """
     return len(str(validInt))
 
-def checkNextNumberIndex(line, numberIndex):
+
+def checkNextNumberIndex(line: list[str], numberIndex: int) -> int:
     """
     Finds the ending index of a sequence of digits starting at a specified index in a line.
 
     Args:
-        line (str): The string line to check.
+        line (list[str]): The list of characters in the line to check.
         numberIndex (int): The starting index in `line` to begin looking for digits.
 
     Returns:
         int: The index immediately following the last digit in the sequence found starting at `numberIndex`.
     """
-    totalInt = []
-    keepGoing = True
-    while keepGoing:
-        if line[numberIndex].isdigit():
-            totalInt.append(line[numberIndex])
-            numberIndex += 1
-        else:
-            break
+    while numberIndex < len(line) and line[numberIndex].isdigit():
+        numberIndex += 1
     return numberIndex
 
-def checkNextLine(line, lowerBound, upperBound):
+
+def checkNextLine(line: list[str], lowerBound: int, upperBound: int) -> bool:
     """
-    Checks if any special characters are present on the next line.
+    Checks if any special characters are present in the specified range of the next line.
 
     Args:
-        line (str): The string line to check.
+        line (list[str]): The list of characters in the line to check.
         lowerBound (int): The starting index of the range to check.
         upperBound (int): The ending index (exclusive) of the range to check.
 
@@ -111,13 +104,15 @@ def checkNextLine(line, lowerBound, upperBound):
         if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
+    return False
 
-def checkPrevLine(line, lowerBound, upperBound):
+
+def checkPrevLine(line: list[str], lowerBound: int, upperBound: int) -> bool:
     """
-    Checks if any special characters are present on the previous line.
+    Checks if any special characters are present in the specified range of the previous line.
 
     Args:
-        line (str): The string line to check.
+        line (list[str]): The list of characters in the line to check.
         lowerBound (int): The starting index of the range to check.
         upperBound (int): The ending index (exclusive) of the range to check.
 
@@ -128,13 +123,15 @@ def checkPrevLine(line, lowerBound, upperBound):
         if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
+    return False
 
-def checkLine(line, lowerBound, upperBound):
+
+def checkLine(line: list[str], lowerBound: int, upperBound: int) -> bool:
     """
-    Checks if any special characters are present on the current iterating line.
+    Checks if any special characters are present in the specified range of the current line.
 
     Args:
-        line (str): The string line to check.
+        line (list[str]): The list of characters in the line to check.
         lowerBound (int): The starting index of the range to check.
         upperBound (int): The ending index (exclusive) of the range to check.
 
@@ -145,3 +142,4 @@ def checkLine(line, lowerBound, upperBound):
         if line[lowerBound] in ('*', '$', '-', '%', '@', '=', '&', '/', '+', '#'):
             return True
         lowerBound += 1
+    return False
