@@ -3,7 +3,7 @@ with open('day_1_input.txt', 'r') as file:
 
 output = []
 for line in lines:
-    
+
 # Extract the first and last digit only
     first_digit = None
     last_digit = None
@@ -16,5 +16,3 @@ for line in lines:
     output.append(((first_digit * 10) + last_digit))
 
 print(sum(output))
-    
-   
