@@ -4,7 +4,7 @@ import utlities
 
 lines = utlities.readInInput('day_2_input.txt')
 # Valid number of cubes: 12 red cubes, 13 green cubes, and 14 blue cubes
-    
+
 validGames = []
 
 for line in lines:
