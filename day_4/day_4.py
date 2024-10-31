@@ -12,7 +12,7 @@ for line in lines:
     i = 2
     winning_numbers = []
     numbers_you_have = []
-    
+
     while i < 12:
         #add all winning numbers from position 2 to 12 in the line into a list
         winning_numbers.append(line.split()[i]) 
