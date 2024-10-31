@@ -11,7 +11,7 @@ total = 0
 for lineIndex, line in enumerate(lines):
     i = 0
     while i < 140:
-        
+
 # step 3: find the int ranges in each line ie. if there is a 3 digit number its range may be line[2]-line[5]
         if line[i].isdigit():
             validInt =  utlities.checkNextNumber(line, i)
@@ -32,7 +32,6 @@ for lineIndex, line in enumerate(lines):
                 total += validInt
 
         i += 1
-
 print(total)
 
 
