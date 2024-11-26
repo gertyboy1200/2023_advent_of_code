@@ -143,3 +143,9 @@ def checkLine(line: list[str], lowerBound: int, upperBound: int) -> bool:
             return True
         lowerBound += 1
     return False
+
+
+def read_in_without_whitespace(filepath):
+    with open('day_5_input.txt') as f_in:
+        lines = list(line for line in (l.strip() for l in f_in) if line)
+    return lines
